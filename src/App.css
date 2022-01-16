@@ -1,38 +1,303 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+body{
+ font-family: 'Nunito', sans-serif;
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.header{
+  width: 100%;
+  min-height: 50px;
+  background-color: hsl(225, 73%, 57%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.header h1{
+ font-size: 1.1rem;
+ color: #fff;
+}
+
+h2{
+  color: grey;
+}
+
+.btn-home{
+border-left: 2px solid silver;
+padding: 15px 5px;
+cursor: pointer;
+color: #fff;
+}
+
+.btn-home:hover{
+  background-color:hsl(225, 50%, 57%);
+}
+
+.active{
+background-color:hsl(225, 50%, 57%);
+border-left: 3px solid silver;
+}
+
+.container{
+  width: 85%;
+  min-height: 90vmin;
+  border-radius: .5rem;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.container-form-users{
+  margin-top: 30px;
+  position: relative;
   }
-  to {
-    transform: rotate(360deg);
+
+.form-users{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 30px;
+}
+.fas, .far{
+  color: grey;
+  margin-right: 5px;
+}
+.input-container{
+  margin-bottom: 15px;
+  position: relative;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"]{
+  height: 2em;  
+  width: 250px;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid silver; 
+  padding: 0px 10px; 
+  font-size: .9rem;
+  color: hsl(0, 5%, 30%);
+  letter-spacing: .5px;
+}
+
+.input-container label{
+  display: none;
+}
+
+input::placeholder{
+  font-size: .8rem;
+  color: grey;
+  letter-spacing: 2px;
+}
+
+input:focus{
+  border-bottom: 1.5px solid hsla(225, 73%, 57%,.5);
+}
+
+input:focus::placeholder{
+  color: transparent
+}
+
+input:focus ~ label{
+  position: absolute;
+  display: block;
+  font-size: .8rem;
+  font-weight: 500;
+  margin: 5px 0 0 25px;
+  color: grey;
+  letter-spacing: 2px;
+}
+
+.mesage-ok{
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: hsla(220, 95%, 40%,.5);
+  color: aliceblue;
+  border-radius: .5rem;
+  box-shadow: 2px 2px 5px 1.5px hsla(225, 73%, 57%,.5);
+  position: absolute;
+  left: 0;
+  top: -80px;
+  transition: all .3s linear;
+}
+
+.show-sucess{
+  top: -34px;
+  z-index: 10;
+}
+
+ .error-email{
+  position: absolute;
+  width: 93%;
+  padding: 2px;
+  bottom: -26px;
+  left: 20px;
+  border-radius: 3px;
+  background-color: hsla(9, 100%, 64%,.2);
+  color: tomato;
+  text-align: center;
+  opacity: 0;
+  transition: all .4s linear;
+}
+
+.show-error{ 
+  opacity: 1;
+}
+
+button{
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+  border: none;
+}
+
+.form-users .submit{
+  padding: 10px 15px;
+  border-radius: .5rem;
+  background-color: hsl(225, 73%, 57%);
+  color: aliceblue;
+}
+
+.form-users .cancel{
+  margin-left: 7px;
+  background-color: gray;
+}
+
+.users-list {
+  width: 100%;
+}
+
+.container-info{
+  border-bottom: 3px solid silver;
+  border-top: 1px solid silver;
+  display: grid;
+  grid-template-columns: 1fr .4fr;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.info-user{
+  font-size: .9rem;
+  color: hsl(0, 5%, 20%);
+  letter-spacing: .3px;
+}
+ 
+.name{
+  text-transform: capitalize;
+}
+.info-user p{
+  margin-bottom: 5px;
+}
+
+.actions{
+ align-self: center;
+}
+
+.edit, .delete{
+  margin-left: 5px;
+  padding: 2PX 4PX;
+  border-radius: .3rem;
+  cursor: pointer;
+}
+
+.edit{color: hsl(225, 73%, 57%);}
+.delete{color: tomato;}
+
+.confirm-delete{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: hsla(9, 100%, 64%,.55);
+  border-radius: .4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  transition: all .4s linear;
+}
+
+.confirm-delete .content-confirm{
+  width: 50%;
+  height: 25%;
+  border-radius: .5rem;
+  font-size: 1.1rem;
+  background-color: hsl(0, 5%, 20%);
+  letter-spacing: .3px;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.confirm a{
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0 3px;
+  margin-left: 15px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  color: #fff;
+}
+
+.confirm .yes{background-color: rgb(243, 85, 85);}
+.confirm .nou{background-color: rgb(163, 161, 161);}
+
+.show-confirm{
+display: flex;
+}
+
+@media only screen and (min-width: 560px) {
+    .container{
+      width: 85%;
+      min-height: 70vmin;
+    }
+}
+
+@media only screen and (min-width: 660px) {
+  .container{
+    width: 80%;
+    min-height: 70vmin;
+  }
+  .header{
+    justify-content: space-around;
+  }
+}
+
+
+@media only screen and (min-width: 760px) {
+  .container{
+    width: 65%;
+    min-height: 70vmin;
+  }
+
+  .header h1{
+    font-size: 1.5rem;
+  }
+}
+
+
+@media only screen and (min-width: 860px) {
+  .container{
+    width: 40%;
+    min-height: 70vmin;
   }
 }
