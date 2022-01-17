@@ -6,7 +6,7 @@ const UserList = ({users, deleteUser, selectUser, confirmDelete, setConfirmDelet
         <section className='users-list'>
                 {
                     users?.map(user => ( 
-                        <article key={user.id} className='container-info'>
+                        <article key={user.id} className='container-info-user'>
                             <div className="info-user">
                                 <p className='name'><strong>{`${user.first_name} ${user.last_name}`}</strong></p>
                                 <p>{user.email}</p>
