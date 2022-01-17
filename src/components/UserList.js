@@ -13,8 +13,8 @@ const UserList = ({users, deleteUser, selectUser, confirmDelete, setConfirmDelet
                                 <p><i className="fas fa-birthday-cake"></i>{user.birthday}</p>
                             </div>
                             <div className="actions">
-                             <i class="fas fa-trash delete" onClick={() => setConfirmDelete(user.id)}  ></i>
-                             <i class="fas fa-edit edit" onClick={() => selectUser(user)}></i>
+                             <i className="fas fa-trash delete" onClick={() => setConfirmDelete(user.id)}  ></i>
+                             <i className="fas fa-edit edit" onClick={() => selectUser(user)}></i>
                             </div>
                         </article>
                     ))

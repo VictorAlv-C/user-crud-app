@@ -31,7 +31,7 @@ const deleteUser = (id )=> {
   return (
     <div className="App">
       <Header setNavigation={setNavigation} navigation={navigation}/>
-      <h2>{navigation ? 'Nuevo Contacto' : 'Contactos'}</h2>
+      <h2>{navigation ? ( userSelected ? 'Actualizar Contacto' : 'Nuevo Contacto') : 'Contactos'}</h2>
       <div className="container">
         {
           navigation ? (
